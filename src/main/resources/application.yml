@@ -1,0 +1,14 @@
+---
+spring:
+  datasource:
+    url: jdbc:h2:mem:wallet
+  jpa:
+    database: H2
+
+---
+spring:
+  config:
+    activate:
+      on-profile: persist
+  datasource:
+    url: jdbc:h2:file:./wallet
