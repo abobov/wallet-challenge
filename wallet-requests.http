@@ -1,0 +1,40 @@
+### Make a credit transaction for john
+POST http://localhost:8080/players/john/transactions
+Content-Type: application/json
+
+{
+  "id": "{{$uuid}}",
+  "type": "Credit",
+  "amount": 200
+}
+
+
+### Make a debit transaction for john
+POST http://localhost:8080/players/john/transactions
+Content-Type: application/json
+
+{
+  "id": "{{$uuid}}",
+  "type": "Debit",
+  "amount": 150
+}
+
+
+### Make a credit transaction for john with idempotency key
+POST http://localhost:8080/players/john/transactions
+Content-Type: application/json
+Idempotency-Key: 96786745-b25a-40a2-a30a-8fa9ff9dc33b
+
+{
+  "id": "{{$uuid}}",
+  "type": "Credit",
+  "amount": 200
+}
+
+
+### Get current balance for john
+GET http://localhost:8080/players/john
+
+
+### List of john transactions
+GET http://localhost:8080/players/john/transactions
